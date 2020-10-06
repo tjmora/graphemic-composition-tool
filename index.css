@@ -1,0 +1,79 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: #999999;
+}
+.outer {
+    display: block;
+    width: 100%;
+}
+.inner {
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+    background-color: #eeecda;
+    border-radius: 15px;
+    padding-bottom: 10px;
+}
+.inner h1 {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    padding: 10px;
+    background-color: #133b5c;
+    color: #eeecda;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-family: Verdana, sans-serif;
+}
+.main {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.left {
+    width: 480px;
+}
+.right {
+    width: 480px;
+}
+h2 {
+    font-size: 20px;
+    font-family: Verdana, sans-serif;
+}
+textarea {
+    width: 480px;
+    height: 200px;
+    font-size: 14px;
+}
+#codesText {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 480px;
+    height: 200px;
+    overflow: scroll;
+    border: solid 1px #444444;
+    background-color: white;
+}
+#codesText span {
+    display: inline-block;
+    margin-right: 3px;
+    border-right: solid 1px rgba(0,0,0,0);
+    font-size: 12px;
+}
+button, label, input {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+select {
+    display: block;
+}
+table {
+    display: block;
+    width: 480px;
+}
