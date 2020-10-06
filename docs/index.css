@@ -13,7 +13,7 @@ body {
     display: block;
     margin: 0 auto;
     width: 1000px;
-    background-color: #eeecda;
+    background-color: #dbe2ef;
     border-radius: 15px;
     padding-bottom: 10px;
 }
@@ -23,8 +23,8 @@ body {
     font-size: 25px;
     width: 100%;
     padding: 10px;
-    background-color: #133b5c;
-    color: #eeecda;
+    background-color: #112d4e;
+    color: #dbe2ef;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-family: Verdana, sans-serif;
