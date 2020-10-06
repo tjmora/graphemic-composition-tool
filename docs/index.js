@@ -116,7 +116,7 @@ window.onload = () => {
     });
     document.getElementById("search").addEventListener("input", () => {
         let option = Array.from(selectBlock.options)
-                        .find(option => option.textContent.toLowerCase().startsWith(document.getElementById("search").value.toLowerCase()));
+                        .find(option => option.textContent.toLowerCase().includes(document.getElementById("search").value.toLowerCase()));
         if (option !== undefined)
             option.selected = "selected";
         renderChars();
