@@ -106,7 +106,7 @@ window.onload = () => {
     });
     document.getElementById("insertCodeButton").addEventListener("click", () => {
         let val = document.getElementById("insertCode").value.trim();
-        if (val.startsWith("U+"))
+        if (val.startsWith("U+") || val.startsWith("0x"))
             val = val.slice(2);
         let cp = parseInt(val, 16);
         if (isNaN(cp))
