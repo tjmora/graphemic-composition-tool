@@ -64,8 +64,22 @@ textarea {
     display: inline-block;
     padding-left: 2px;
     padding-right: 2px;
-    border-right: solid 2px rgba(0,0,0,0);
+    border-right: solid 2px rgba(0,127,0,0);
+    animation: nocaret 1s infinite;
     font-size: 16px;
+}
+@keyframes nocaret {
+    0% {
+        border-right: solid 2px rgba(0,127,0,0);
+    }
+}
+@keyframes blink {
+    0%, 100% {
+        border-right: solid 2px rgba(0,127,0,0);
+    }
+    50% {
+        border-right: solid 2px rgba(0,127,0,1);
+    }
 }
 button, label, input {
     display: inline-block;

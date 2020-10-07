@@ -1,16 +1,17 @@
 let charsText, codesText, selectBlock, charsBlock;
 
-function codesCursor () {
+function codesCaret () {
     if (document.getElementById("charsText").value === "")
         return
     let cas = document.querySelectorAll("#codesText span");
     cas.forEach((sp) => {
-        sp.style.borderRight = "";
+        sp.style.animation = "nocaret 1s infinite";
         sp.style.backgroundColor = "";
     });
     if (charsText.selectionStart === charsText.selectionEnd) {
         let codesBefore = [...charsText.value.slice(0, charsText.selectionStart)].length;
-        cas[codesBefore - 1].style.borderRight = "solid 2px rgba(0,127,0,1)";
+        if (codesBefore > 0)
+            cas[codesBefore - 1].style.animation = "blink 1s infinite";
     }
     else {
         let codesTotal = [...charsText.value].length;
@@ -21,10 +22,10 @@ function codesCursor () {
     }
 }
 
-function moveCursor (index) {
+function moveCaret (index) {
     charsText.focus();
     charsText.selectionStart = charsText.selectionEnd = [...charsText.value].slice(0, index+1).join("").length;
-    codesCursor();
+    codesCaret();
 }
 
 function codesRender () {
@@ -33,7 +34,7 @@ function codesRender () {
         let span = document.createElement("span");
         span.textContent = ch.codePointAt(0).toString(16);
         span.addEventListener("click", () => {
-            moveCursor(i);
+            moveCaret(i);
         });
         codesText.appendChild(span);
     });
@@ -81,12 +82,16 @@ window.onload = () => {
     renderChars();
     charsText.value = ""; // Firefox pre-loads previous value on refresh, introducing bugs, so clear it
 
-    charsText.addEventListener("click", codesCursor);
+    charsText.addEventListener("click", codesCaret);
     charsText.addEventListener("input", () => {
         codesRender();
-        codesCursor();
+        codesCaret();
     });
-    charsText.addEventListener("selectionchange", codesCursor);
+    charsText.addEventListener("selectionchange", codesCaret);
+    charsText.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "ArrowUp" || e.key === "ArrowDown")
+            setTimeout(codesCaret, 50);
+    });
 
     document.getElementById("nfc").addEventListener("click", () => {
         charsText.value = charsText.value.normalize("NFC")
