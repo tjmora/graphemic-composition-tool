@@ -67,7 +67,7 @@ textarea {
     padding-right: 2px;
     border-right: solid 2px rgba(0,127,0,0);
     animation: nocaret 1s infinite;
-    font-size: 16px;
+    font-size: 15px;
 }
 @keyframes nocaret {
     0% {
