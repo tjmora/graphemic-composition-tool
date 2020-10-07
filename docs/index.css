@@ -109,7 +109,7 @@ table tr td {
         background-color: rgba(0, 255, 0, 0.5);
     }
 }
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 1019px) {
     .inner {
         width: 500px;
     }
