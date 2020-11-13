@@ -4,7 +4,7 @@ A simple online tool for viewing the code point sequence of a text, and precisel
 
 ## Link
 
-https://tjmora.github.io/grapheme-composition-tool/
+https://tjmora.github.io/graphemic-composition-tool/
 
 ## License
 
