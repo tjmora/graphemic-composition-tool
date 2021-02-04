@@ -41,12 +41,30 @@ function codesRender () {
 }
 
 function insertChar (char) {
-    let start = charsText.selectionStart;
-    charsText.value = charsText.value.slice(0, start) + char 
-                        + charsText.value.slice(charsText.selectionEnd);
-    charsText.focus();
-    charsText.selectionStart = start + 1;
-    charsText.selectionEnd = start + 1;
+    let start = charsText.selectionStart,
+        end = charsText.selectionEnd;
+    if (start === end) {
+        charsText.value = charsText.value.slice(0, start) + char 
+                            + charsText.value.slice(end);
+        charsText.focus();
+        charsText.selectionStart = start + 1;
+        charsText.selectionEnd = end + 1;
+    }
+    else {
+        let counter = 0,
+            acc = "";
+        [...charsText.value.slice(start, end)].forEach((ch) => {
+                counter++;
+                acc += ch + char;
+            })
+        charsText.value = charsText.value.slice(0, start) 
+                            + acc
+                            + charsText.value.slice(end);
+        charsText.focus();
+        charsText.selectionStart = end + counter + 1;
+        charsText.selectionEnd = end + counter + 1;
+    }
+    
     codesRender();
 }
 
